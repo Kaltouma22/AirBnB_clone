@@ -3,8 +3,14 @@ from uuid import uuid4 as uu
 from datetime import datetime as dt
 
 class BaseModel:
-    def __init__(self):
+    def __init__(self, *args, **kwarge):
         self.id = str(uu())
+        if kwargs:
+            for key, value in kwargs.items():
+                if key != 'class':
+                    if key in ['created_at', 'updated_at']:
+                        value = datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%f')
+                    setattr(self, key, value)
         self.created_at = dt.now()
         self.updated_at = dt.now()
     
