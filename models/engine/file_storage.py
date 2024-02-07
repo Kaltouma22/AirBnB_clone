@@ -28,6 +28,8 @@ class FileStorage:
                 dictionary = json.load(file)
             for key, value in dictionary.items():
                 class_name, id_class = key.split(".")
-                clss = eval(class_name)(**value)
+                if class_name == "User":
+                    clss = User(**value)
+                else:
+                    clss = eval(class_name)(**value)
                 FileStorage.__objects[key] = clss
-
