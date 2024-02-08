@@ -5,6 +5,7 @@ from models import storage
 from models.base_model import BaseModel
 import json
 
+
 class HBNBCommand(cmd.Cmd):
     prompt = "(hbnb) "
 
@@ -20,12 +21,12 @@ class HBNBCommand(cmd.Cmd):
         elif args[0] != "BaseModel":
             print("** class doesn't exist **")
             return
-        
+
         else:
             my_instance = BaseModel()
             my_instance.save()
             print(my_instance.id)
-            
+
     def do_show(self, arg):
         if not arg:
             print("** class name missing **")
@@ -60,7 +61,7 @@ class HBNBCommand(cmd.Cmd):
                 storage.save()
                 return
         print("** no instance found **")
-                
+
     def do_update(self, args):
         my_args = args.split()
         if len(my_args) == 0:
@@ -99,12 +100,13 @@ class HBNBCommand(cmd.Cmd):
             print(list_of_args)
 
     def do_EOF(self, arg):
-        """Exit the program by typing EOF (Ctrl+D on Linux, Ctrl+Z on windows)"""
+        """Exit the program by typing EOF """
         return True
 
     def emptyline(self):
         """Do nothing on empty line"""
         pass
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()

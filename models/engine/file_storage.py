@@ -2,6 +2,13 @@
 import json
 import os
 from models.base_model import BaseModel
+from models.user import User
+from models.city import City
+from models.place import Place
+from models.amenity import Amenity
+from models.state import State
+from models.review import Review
+
 
 class FileStorage:
     __file_path = "file.json"
@@ -28,8 +35,8 @@ class FileStorage:
                 dictionary = json.load(file)
             for key, value in dictionary.items():
                 class_name, id_class = key.split(".")
-                if class_name == "User":
-                    clss = User(**value)
-                else:
+                if class_name in ["User", "Place", "City", "Amenity", "State", "Review"]:
+                    clss = eval(class_name)(**value)
+                else:    
                     clss = eval(class_name)(**value)
                 FileStorage.__objects[key] = clss
