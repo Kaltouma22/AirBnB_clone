@@ -3,12 +3,19 @@
 import cmd
 from models import storage
 from models.base_model import BaseModel
+from models.user import User
+from models.state import State
+from models.city import City
+from models.place import Place
+from models.amenity import Amenity
+from models.review import Review
 import json
 
 
 class HBNBCommand(cmd.Cmd):
     prompt = "(hbnb) "
 
+    array_of_keys = ["BaseModel", "City", "User", "State", "Review", "Place", "Amenity"]
     def do_quit(self, arg):
         """ Quit command to exit the program """
         return True
@@ -18,12 +25,12 @@ class HBNBCommand(cmd.Cmd):
         if len(args) == 0:
             print("** class name missing **")
             return
-        elif args[0] != "BaseModel":
+        elif args[0] not in self.array_of_keys:
             print("** class doesn't exist **")
             return
-
         else:
-            my_instance = BaseModel()
+            class_name = args[0]
+            my_instance = eval(class_name)()
             my_instance.save()
             print(my_instance.id)
 
@@ -32,7 +39,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
             return
         args = arg.split()
-        if args[0] != "BaseModel":
+        if args[0] not in self.array_of_keys:
             print("** class doesn't exist **")
             return
         if len(args) == 1:
@@ -49,7 +56,7 @@ class HBNBCommand(cmd.Cmd):
         if len(my_args) == 0:
             print("** class name missing **")
             return
-        elif my_args[0] != "BaseModel":
+        elif my_args[0] not in self.array_of_keys:
             print("** class doesn't exist **")
             return
         elif len(my_args) == 1:
@@ -67,7 +74,7 @@ class HBNBCommand(cmd.Cmd):
         if len(my_args) == 0:
             print("** class name missing **")
             return
-        elif my_args[0] != "BaseModel":
+        elif my_args[0] not in self.array_of_keys:
             print("** class doesn't exist **")
             return
         elif len(my_args) == 1:
@@ -90,7 +97,7 @@ class HBNBCommand(cmd.Cmd):
     def do_all(self, args):
         my_args = args.split()
         class_name = my_args[0]
-        if len(my_args) == 0 and class_name != "BaseModel":
+        if len(my_args) == 0 and class_name not in self.array_of_keys:
             print("** class doesn't exist **")
             return
         else:
