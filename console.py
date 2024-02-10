@@ -94,6 +94,12 @@ class HBNBCommand(cmd.Cmd):
 
             print("** no instance found **")
 
+    def do_command(self, arg):
+        args = arg.split()
+        if args:
+            first_arg = args[0]
+            print("First argument:", first_arg)
+    
     def do_all(self, args):
         my_args = args.split()
         class_name = my_args[0]
@@ -103,9 +109,29 @@ class HBNBCommand(cmd.Cmd):
         else:
             list_of_args = []
             for key in storage.all():
-                list_of_args.append(str(storage.all()[key]))
+                list_of_args.append((storage.all()[key]))
             print(list_of_args)
 
+
+
+    def default(self, args):
+        my_args = args.split(".")
+        if my_args[0] in self.array_of_keys:
+            if my_args[1] == "all()":
+                self.do_all(my_args[0])
+                return
+            if my_args[1] == "count()":
+                counter = 0
+                for keys in storage.all().keys():
+                    key, value = keys.split(".")
+                    if key == my_args[0]:
+                        counter += 1
+                print(counter)
+                return
+        print(f"*** Unknown syntax: {args}")
+
+        
+        
     def do_EOF(self, arg):
         """Exit the program by typing EOF """
         return True
