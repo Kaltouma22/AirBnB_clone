@@ -11,7 +11,7 @@ class TestHBNBCommand(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_quit(self):
+    def test_quit(self): #fix this to be matched with the console.py file
         with patch('sys.stdout', new=StringIO()) as fake_out:
             self.assertTrue(self.console.onecmd("quit"))
             self.assertEqual(fake_out.getvalue(), "")
@@ -31,7 +31,7 @@ class TestHBNBCommand(unittest.TestCase):
 
     
 
-    def test_all(self):
+    def test_all(self): #fix this to be matched with the console.py file
         with patch('sys.stdout', new=StringIO()) as fake_out:
             self.console.onecmd("all BaseModel")
             self.assertIn("[]", fake_out.getvalue())

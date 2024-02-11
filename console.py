@@ -40,6 +40,7 @@ class HBNBCommand(cmd.Cmd):
             return
         args = arg.split()
         if args[0] not in self.array_of_keys:
+            print(args[0])
             print("** class doesn't exist **")
             return
         if len(args) == 1:
@@ -128,6 +129,24 @@ class HBNBCommand(cmd.Cmd):
                         counter += 1
                 print(counter)
                 return
+            Last_args = my_args[1].split('("')
+            if Last_args[0] == "show":
+                new_s = Last_args[1].replace('")', "")
+                last = f"{my_args[0]}.{new_s}"
+                if last in storage.all():
+                    print(last)
+                    print(storage.all()[last])
+                    return
+            if Last_args[0] == "destroy":
+                new_s = Last_args[1].replace('")', "")
+                last = f"{my_args[0]}.{new_s}"
+                if last in storage.all():
+                    del storage.all()[last]
+                    storage.save()
+                    return
+            if Last_args[0] == "update":
+                print(Last_args[1])
+                return #need to be fixed to get a list of string withour a comma.
         print(f"*** Unknown syntax: {args}")
 
         
