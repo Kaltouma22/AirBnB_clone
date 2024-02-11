@@ -137,6 +137,7 @@ class HBNBCommand(cmd.Cmd):
                     print(last)
                     print(storage.all()[last])
                     return
+                print("** no instance found **")
             if Last_args[0] == "destroy":
                 new_s = Last_args[1].replace('")', "")
                 last = f"{my_args[0]}.{new_s}"
