@@ -16,9 +16,6 @@ class TestHBNBCommand(unittest.TestCase):
             self.assertTrue(self.console.onecmd("quit"))
             self.assertEqual(fake_out.getvalue(), "")
 
-    
-
-
     def test_show(self):
         with patch('sys.stdout', new=StringIO()) as fake_out:
             self.console.onecmd("show BaseModel")
@@ -31,16 +28,41 @@ class TestHBNBCommand(unittest.TestCase):
 
     
 
-    def test_all(self): #fix this to be matched with the console.py file
+    def test_all(self):
         with patch('sys.stdout', new=StringIO()) as fake_out:
             self.console.onecmd("all BaseModel")
             self.assertIn("[]", fake_out.getvalue())
 
+    
     def test_EOF(self):
         with patch('sys.stdout', new=StringIO()) as fake_out:
             self.assertTrue(self.console.onecmd("EOF"))
             self.assertEqual(fake_out.getvalue(), "")
 
+    def test_create(self):
+        with patch('sys.stdout', new=StringIO()) as fake_out:
+            self.console.onecmd("create BaseModel")
+            self.assertIn("** instance id missing **", fake_out.getvalue())
+
+    def test_update(self):
+        with patch('sys.stdout', new=StringIO()) as fake_out:
+            self.console.onecmd("update BaseModel instance_id")
+            self.assertIn("** instance id missing **", fake_out.getvalue())
+
+    def test_command(self):
+        with patch('sys.stdout', new=StringIO()) as fake_out:
+            self.console.onecmd("command BaseModel")
+            self.assertIn(fake_out.getvalue(), "** instance id missing **")
+
+    def test_default(self):
+        with patch('sys.stdout', new=StringIO()) as fake_out:
+            self.console.default("BaseModel")
+            self.assertEqual(fake_out.getvalue(), "** instance id missing **")
+
+    def test_emptyline(self):
+        with patch('sys.stdout', new=StringIO()) as fake_out:
+            self.assertTrue(self.console.onecmd("emptyline"))
+            self.assertEqual(fake_out.getvalue(), "\n")
 
 if __name__ == '__main__':
     unittest.main()
