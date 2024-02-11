@@ -112,7 +112,7 @@ class HBNBCommand(cmd.Cmd):
         else:
             list_of_args = []
             for key in storage.all():
-                list_of_args.append((storage.all()[key]))
+                list_of_args.append(str(storage.all()[key]))
             print(list_of_args)
 
     def default(self, args):
