@@ -19,4 +19,3 @@ my_user.region = "NY"
 my_user.home_town = "El Pablo"
 my_user.save()
 print(my_user)
-

@@ -21,6 +21,7 @@ class Place(BaseModel):
         self.longitude = kwargs.get('longitude', 0.0)
         self.amenity_ids = kwargs.get('amenity_ids', [])
 
+
 class City(BaseModel):
     """City class"""
 
@@ -28,6 +29,7 @@ class City(BaseModel):
         """Initialize City instance"""
         super().__init__(*args, **kwargs)
         self.name = kwargs.get('name', "")
+
 
 class User(BaseModel):
     """User class"""

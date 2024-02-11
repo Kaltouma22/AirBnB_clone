@@ -15,7 +15,9 @@ import json
 class HBNBCommand(cmd.Cmd):
     prompt = "(hbnb) "
 
-    array_of_keys = ["BaseModel", "City", "User", "State", "Review", "Place", "Amenity"]
+    array_of_keys = ["BaseModel", "City", "User", "State",
+                     "Review", "Place", "Amenity"]
+
     def do_quit(self, arg):
         """ Quit command to exit the program """
         return True
@@ -99,7 +101,7 @@ class HBNBCommand(cmd.Cmd):
         if args:
             first_arg = args[0]
             print("First argument:", first_arg)
-    
+
     def do_all(self, args):
         my_args = args.split()
         class_name = my_args[0]
@@ -111,8 +113,6 @@ class HBNBCommand(cmd.Cmd):
             for key in storage.all():
                 list_of_args.append((storage.all()[key]))
             print(list_of_args)
-
-
 
     def default(self, args):
         my_args = args.split(".")
@@ -130,8 +130,6 @@ class HBNBCommand(cmd.Cmd):
                 return
         print(f"*** Unknown syntax: {args}")
 
-        
-        
     def do_EOF(self, arg):
         """Exit the program by typing EOF """
         return True
