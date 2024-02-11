@@ -1,8 +1,8 @@
 {
     "User.077b23c7-d6a3-4240-b376-7d9891144144": {
         "id": "077b23c7-d6a3-4240-b376-7d9891144144",
-        "created_at": "2024-02-10T18:41:42.204579",
-        "updated_at": "2024-02-10T18:41:42.204581",
+        "created_at": "2024-02-11T14:44:14.324511",
+        "updated_at": "2024-02-11T14:44:14.324515",
         "email": "airbnb@mail.com",
         "password": "root",
         "first_name": "Betty",
@@ -11,8 +11,8 @@
     },
     "User.e8d66acc-7097-45f6-8f86-3ed43a2f91c2": {
         "id": "e8d66acc-7097-45f6-8f86-3ed43a2f91c2",
-        "created_at": "2024-02-10T18:41:42.204659",
-        "updated_at": "2024-02-10T18:41:42.204661",
+        "created_at": "2024-02-11T14:44:14.324605",
+        "updated_at": "2024-02-11T14:44:14.324607",
         "email": "airbnb2@mail.com",
         "password": "root",
         "first_name": "John",
@@ -21,8 +21,8 @@
     },
     "User.1dd2141e-a917-40b6-8148-2e8a5a8ebb44": {
         "id": "1dd2141e-a917-40b6-8148-2e8a5a8ebb44",
-        "created_at": "2024-02-10T18:41:42.204706",
-        "updated_at": "2024-02-10T18:41:42.204708",
+        "created_at": "2024-02-11T14:44:14.324669",
+        "updated_at": "2024-02-11T14:44:14.324671",
         "email": "airbnb@mail.com",
         "password": "root",
         "first_name": "Betty",
@@ -31,8 +31,8 @@
     },
     "User.20b13133-2922-4e65-b94d-ff07528c1690": {
         "id": "20b13133-2922-4e65-b94d-ff07528c1690",
-        "created_at": "2024-02-10T18:41:42.204756",
-        "updated_at": "2024-02-10T18:41:42.204757",
+        "created_at": "2024-02-11T14:44:14.324737",
+        "updated_at": "2024-02-11T14:44:14.324740",
         "email": "airbnb2@mail.com",
         "password": "root",
         "first_name": "John",
@@ -41,8 +41,8 @@
     },
     "Place.b62b4160-d691-463f-a6de-5f9a633ce5a4": {
         "id": "b62b4160-d691-463f-a6de-5f9a633ce5a4",
-        "created_at": "2024-02-10T18:42:23.317270",
-        "updated_at": "2024-02-10T18:42:23.317299",
+        "created_at": "2024-02-11T14:44:14.324801",
+        "updated_at": "2024-02-11T14:44:14.324803",
         "city_id": "",
         "user_id": "",
         "name": "",
@@ -55,5 +55,11 @@
         "longitude": 0.0,
         "amenity_ids": [],
         "__class__": "Place"
+    },
+    "BaseModel.cd29ff6c-82ee-4354-b99b-ef858e3f4249": {
+        "id": "cd29ff6c-82ee-4354-b99b-ef858e3f4249",
+        "created_at": "2024-02-11T14:44:20.315576",
+        "updated_at": "2024-02-11T14:44:20.315597",
+        "__class__": "BaseModel"
     }
 }
