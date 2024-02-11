@@ -105,15 +105,19 @@ class HBNBCommand(cmd.Cmd):
 
     def do_all(self, args):
         my_args = args.split()
-        class_name = my_args[0]
-        if len(my_args) == 0 and class_name not in self.array_of_keys:
+        if len(my_args) == 0 or my_args[0] not in self.array_of_keys:
             print("** class doesn't exist **")
             return
         else:
-            list_of_args = []
+            class_name = my_args[0]
+            list_of_instances = []
+
             for key in storage.all():
-                list_of_args.append(str(storage.all()[key]))
-            print(list_of_args)
+                key_class = key.split('.')[0]
+                if key_class == class_name:
+                    instance_str = str(storage.all()[key])
+                    list_of_instances.append(instance_str)
+            print(list_of_instances)
 
     def default(self, args):
         my_args = args.split(".")
