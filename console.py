@@ -144,6 +144,7 @@ class HBNBCommand(cmd.Cmd):
                     del storage.all()[last]
                     storage.save()
                     return
+                print("** no instance found **")
             if Last_args[0] == "update":
                 print(Last_args[1])
                 return  # need to be fix to get a list of str withour a comma.
