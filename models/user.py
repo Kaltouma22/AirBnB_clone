@@ -1,15 +1,13 @@
 #!/usr/bin/python3
-""" A class User that inherits from BaseModel """
+''' class User that inherits from BaseModel '''
+
 from models.base_model import BaseModel
 
 
 class User(BaseModel):
-    """ User class """
-
-    def __init__(self, *args, **kwargs):
-        """ Initialize User instance """
-        super().__init__(*args, **kwargs)
-        self.email = kwargs.get('email', "")
-        self.password = kwargs.get('password', "")
-        self.first_name = kwargs.get('first_name', "")
-        self.last_name = kwargs.get('last_name', "")
+    ''' Atributos de clase pública '''
+    # Attribute for User
+    email = ""
+    password = ""
+    first_name = ""
+    last_name = ""
