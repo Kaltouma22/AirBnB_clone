@@ -153,7 +153,7 @@ class HBNBCommand(cmd.Cmd):
             if Last_args[0] == "update":
                 print(Last_args[1])
                 return  # need to be fix to get a list of str withour a comma.
-                print(f"*** Unknown syntax: {args}")
+        print(f"*** Unknown syntax: {args}")
 
     def do_EOF(self, arg):
         """Exit the program by typing EOF """
